@@ -1,5 +1,5 @@
 name: Theme Store
-version: '0.0.3'
+version: '0.0.4'
 slug: theme_store
 description: 'A foundation add-on for a community theme store'
 url: 'https://example.com/your-repo-or-local'
@@ -19,6 +19,8 @@ map:
   - config:rw
   - share:rw
 schema:
-  log_level: list(info|debug|warning|error)?
+  log_level: list(debug|info|warning|error)?
+  api_port: int(1024,65535)?
 options:
   log_level: info
+  api_port: 8080
