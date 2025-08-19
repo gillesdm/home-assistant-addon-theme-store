@@ -24,3 +24,20 @@ class ThemeCreate(BaseModel):
 
 class DeleteResult(BaseModel):
     status: Literal["deleted"]
+
+
+class InstallRequest(BaseModel):
+    id: str = Field(min_length=1, pattern=r"^[a-zA-Z0-9_\-\.]+$")
+    url: Optional[HttpUrl] = None
+    content: Optional[str] = None
+
+
+class InstallResult(BaseModel):
+    id: str
+    path: str
+
+
+class InstalledTheme(BaseModel):
+    id: str
+    path: str
+    valid: bool = True

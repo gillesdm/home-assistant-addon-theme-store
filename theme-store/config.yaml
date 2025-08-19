@@ -1,7 +1,7 @@
 name: Theme Store
-version: "0.0.5"
+version: "0.0.6"
 slug: theme_store
-description: "A foundation add-on for a community theme store"
+description: "Theme Store foundation with local catalog and installer"
 url: "https://example.com/your-repo-or-local"
 startup: application
 boot: auto
