@@ -1,8 +1,8 @@
 name: Theme Store
-version: '0.0.4'
+version: "0.0.5"
 slug: theme_store
-description: 'A foundation add-on for a community theme store'
-url: 'https://example.com/your-repo-or-local'
+description: "A foundation add-on for a community theme store"
+url: "https://example.com/your-repo-or-local"
 startup: application
 boot: auto
 arch:
@@ -14,7 +14,7 @@ homeassistant_api: true
 ingress: false
 host_network: false
 ports:
-  '8080/tcp': 8080
+  "8080/tcp": 8080
 map:
   - config:rw
   - share:rw
