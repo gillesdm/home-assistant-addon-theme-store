@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Theme Store</title>
+    <link rel="stylesheet" href="/ui/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Theme Store</h1>
+      <div id="info"></div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Catalog</h2>
+        <div id="catalog">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody id="catalog-body"></tbody>
+          </table>
+        </div>
+        <div class="actions">
+          <form id="add-theme-form">
+            <h3>Add/Update Theme (Catalog)</h3>
+            <label
+              >ID <input name="id" required pattern="[a-zA-Z0-9_.-]+"
+            /></label>
+            <label>Name <input name="name" required /></label>
+            <label>Author <input name="author" /></label>
+            <label>Description <input name="description" /></label>
+            <button type="submit">Save to Catalog</button>
+            <span class="hint">This only updates the local catalog list.</span>
+          </form>
+        </div>
+      </section>
+
+      <section>
+        <h2>Install Themes</h2>
+        <div class="grid">
+          <form id="install-url-form">
+            <h3>Install from URL</h3>
+            <label
+              >ID <input name="id" required pattern="[a-zA-Z0-9_.-]+"
+            /></label>
+            <label
+              >YAML URL
+              <input
+                name="url"
+                required
+                type="url"
+                placeholder="https://.../theme.yaml"
+            /></label>
+            <button type="submit">Install</button>
+          </form>
+
+          <form id="install-content-form">
+            <h3>Install from YAML</h3>
+            <label
+              >ID <input name="id" required pattern="[a-zA-Z0-9_.-]+"
+            /></label>
+            <label>YAML Content</label>
+            <textarea
+              name="content"
+              rows="8"
+              placeholder="my-theme:\n  primary-color: '#000'"
+            ></textarea>
+            <button type="submit">Install</button>
+          </form>
+        </div>
+
+        <h3>Installed</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Path</th>
+              <th>Valid</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="installed-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <small>Theme Store Add-on UI</small>
+    </footer>
+
+    <script src="/ui/app.js"></script>
+  </body>
+</html>

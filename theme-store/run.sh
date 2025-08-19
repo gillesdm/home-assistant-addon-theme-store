@@ -12,7 +12,7 @@ if [[ -f /data/options.json ]]; then
 fi
 
 export LOG_LEVEL
-export APP_VERSION="0.0.6"
+export APP_VERSION="0.0.7"
 export PORT="${API_PORT}"
 
 echo "[info] Theme Store add-on starting (version=${APP_VERSION}, log_level=${LOG_LEVEL}, port=${API_PORT})"

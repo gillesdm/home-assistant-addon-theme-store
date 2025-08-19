@@ -3,6 +3,8 @@ import time
 from typing import List
 
 from fastapi import FastAPI, HTTPException, Response
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 from .installer import install_theme, list_installed, uninstall_theme
 from .logging_utils import log
@@ -16,10 +18,11 @@ from .models import (
 )
 from .storage import CATALOG_PATH, read_catalog, write_catalog
 
-APP_VERSION = os.environ.get("APP_VERSION", "0.0.6")
+APP_VERSION = os.environ.get("APP_VERSION", "0.0.7")
 START_TS = time.time()
 
 app = FastAPI(title="Theme Store Add-on API", version=APP_VERSION)
+app.mount("/ui", StaticFiles(directory="/usr/src/app/app/static"), name="ui")
 
 
 @app.get("/healthz", status_code=204)
@@ -100,3 +103,8 @@ def uninstall(theme_id: str):
     if not ok:
         raise HTTPException(status_code=404, detail="not_installed")
     return DeleteResult(status="deleted")
+
+
+@app.get("/")
+def root():
+    return RedirectResponse("/ui/")
